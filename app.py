@@ -17,9 +17,13 @@ cors = CORS(app, resources={r'/api/' : {"origins" : "", "headers" : "Content-Typ
 # Call the Universities function and store list in a variable 
 Universities = Universities()
 
-@app.route('/')
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+
+@app.route("/")
 def serve():
-    return send_from_directory(app.static_folder,'index.html')
+    return app.send_static_file('index.html')
 
 # GET all universities or POST a university
 @app.route("/api/universities", methods=["GET", "POST"])
