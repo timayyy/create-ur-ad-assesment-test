@@ -11,7 +11,7 @@ from data import Universities
 from pagination import get_paginated_list
 
 # Init app
-app = Flask(__name__,static_folder='frontend\build',static_url_path='')
+app = Flask(__name__,static_folder='./frontend/build',static_url_path='/')
 cors = CORS(app, resources={r'/api/' : {"origins" : "", "headers" : "Content-Type"}})
 
 # Call the Universities function and store list in a variable 
@@ -145,4 +145,4 @@ def filter_university(country_code):
 
 # Run Server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
