@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response,send_from_directory
 from flask_cors import CORS
 import json
 import os
@@ -11,11 +11,15 @@ from data import Universities
 from pagination import get_paginated_list
 
 # Init app
-app = Flask(__name__)
+app = Flask(__name__,static_folder='frontend\build',static_url_path='')
 cors = CORS(app, resources={r'/api/' : {"origins" : "", "headers" : "Content-Type"}})
 
 # Call the Universities function and store list in a variable 
 Universities = Universities()
+
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder,'index.html')
 
 # GET all universities or POST a university
 @app.route("/api/universities", methods=["GET", "POST"])
