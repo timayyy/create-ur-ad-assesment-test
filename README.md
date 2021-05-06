@@ -46,10 +46,10 @@
 
 ### Built With
 
-* [Python](Python)
-* [React](React)
-* [Redux](Redux)
-* [Bootstrap](Bootstrap)
+* [Python](https://www.python.org/downloads/)
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Bootstrap](https://getbootstrap.com/)
 
 
 
