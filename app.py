@@ -11,19 +11,19 @@ from data import Universities
 from pagination import get_paginated_list
 
 # Init app
-app = Flask(__name__,static_folder='frontend\build\static',static_url_path='')
+app = Flask(__name__,static_folder='./frontend/build',static_url_path='/')
 cors = CORS(app, resources={r'/api/' : {"origins" : "", "headers" : "Content-Type"}})
 
 # Call the Universities function and store list in a variable 
 Universities = Universities()
 
-# @app.errorhandler(404)
-# def not_found(e):
-#     return send_from_directory(app.static_folder,'index.html')
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
 
 @app.route("/")
 def serve():
-    return send_from_directory('frontend\build','index.html')
+    return app.send_static_file('index.html')
 
 # GET all universities or POST a university
 @app.route("/api/universities", methods=["GET", "POST"])
