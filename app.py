@@ -19,11 +19,11 @@ Universities = Universities()
 
 @app.errorhandler(404)
 def not_found(e):
-    return app.send_static_file('index.html')
+    return send_from_directory(app.static_folder,'index.html')
 
 @app.route("/")
 def serve():
-    return app.send_static_file('index.html')
+    return send_from_directory(app.static_folder,'index.html')
 
 # GET all universities or POST a university
 @app.route("/api/universities", methods=["GET", "POST"])
