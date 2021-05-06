@@ -9,6 +9,8 @@
 
   <p align="center">
     A simple CRUD application to find universities, CREATE a new university, UPDATE a specific university, DELETE a university, FILTER by country code and SEARCH
+    <br/>
+    Live demo: <a href="https://createuradapp.herokuapp.com">Demo app</a>
     <br />
     <a href="https://github.com/timayyy/create-ur-ad-assesment-test"><strong>Explore the docs »</strong></a>
     <br />
