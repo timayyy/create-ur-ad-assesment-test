@@ -1,6 +1,6 @@
-import random
 
 def Universities():
+    # create a university list
     universities = [
         {
             'id': 1,
