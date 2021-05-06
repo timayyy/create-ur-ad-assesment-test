@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Button } from 'react-bootstrap'
 import FilterBox from '../components/FilterBox'
 import UniversityList from '../components/UniversityList'
-import { listUniversities, searchUniversities, filterUniversities } from "../actions/universityActions";
+import { listUniversities, searchUniversities, filterUniversities, previousPage, nextPage, } from "../actions/universityActions";
 import SearchBox from '../components/SearchBox';
+import Paginate from '../components/Paginate';
 
 const HomeScreen = () => {
     const [keyword, setKeyword] = useState("");
@@ -14,7 +15,7 @@ const HomeScreen = () => {
     const dispatch = useDispatch();
 
     const universityList = useSelector((state) => state.universityList);
-    const { loading, error, universities } = universityList;
+    const { loading, error, start, limit, pages, previous, next, universities } = universityList;
 
     const universitySearch = useSelector((state) => state.universitySearch);
     const { loading: searchLoading, error: searchError } = universitySearch;
@@ -22,17 +23,26 @@ const HomeScreen = () => {
     const universityFilter = useSelector((state) => state.universityFilter);
     const { loading: filterLoading, error: filterError } = universityFilter;
 
+    const universityDelete = useSelector((state) => state.universityDelete);
+    const { loading: loadingDelete,
+        error: errorDelete,
+        success: successDelete, } = universityDelete;
+
+    if (errorDelete) {
+        alert("Could not delete university. Try again")
+    }
+
 
     useEffect(() => {
         dispatch(listUniversities())
-    }, [dispatch]);
+    }, [dispatch, successDelete]);
 
     const searchSubmitHandler = (e) => {
         e.preventDefault();
         if (keyword === '') {
             dispatch(listUniversities())
         } else {
-            dispatch(searchUniversities(keyword.toLowerCase()))
+            dispatch(searchUniversities(keyword.toLowerCase(), start, limit))
         }
     }
     const filterSubmitHandler = (e) => {
@@ -44,6 +54,15 @@ const HomeScreen = () => {
         }
 
     }
+    const paginatePreviousPage = () => {
+        dispatch(previousPage(previous))
+    }
+
+    const paginateNextPage = () => {
+        dispatch(nextPage(next))
+    }
+
+
 
     return (
         <div className="my-5">
@@ -61,7 +80,8 @@ const HomeScreen = () => {
 
                 </Col>
                 <Col md="8">
-                    <UniversityList loading={loading} searchLoading={searchLoading} error={error} universities={universities} searchError={searchError} filterLoading={filterLoading} filterError={filterError} />
+                    <UniversityList loading={loading} searchLoading={searchLoading} error={error} universities={universities} searchError={searchError} filterLoading={filterLoading} filterError={filterError} start={start} pages={pages} loadingDelete={loadingDelete} errorDelete={errorDelete} />
+                    <Paginate start={start} pages={pages} previous={previous} next={next} paginatePreviousPage={paginatePreviousPage} paginateNextPage={paginateNextPage} />
                 </Col>
             </Row>
         </div>

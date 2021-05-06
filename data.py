@@ -44,7 +44,7 @@ def Universities():
         },
          {
             'id': 5,
-            'alpha_two_code': 'CA',
+            'alpha_two_code': 'NG',
             'country': 'Canada',
             'domain': 'utoronto.ca',
             'name': 'University of Toronto',

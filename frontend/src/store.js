@@ -3,14 +3,19 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import {
-    universityListReducer, universitySearchReducer, universityFilterReducer
+    universityListReducer, universitySearchReducer, universityFilterReducer, universityCreateReducer, universityDeleteReducer, universityDetailsReducer, universityUpdateReducer
 } from "./reducers/universityReducers";
 
 const reducer = combineReducers({
     universityList: universityListReducer,
     universitySearch: universitySearchReducer,
     universityFilter: universityFilterReducer,
+    universityCreate: universityCreateReducer,
+    universityDelete: universityDeleteReducer,
+    universityDetails: universityDetailsReducer,
+    universityUpdate: universityUpdateReducer,
 });
+
 
 
 

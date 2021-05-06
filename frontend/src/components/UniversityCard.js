@@ -1,6 +1,18 @@
 import React from 'react'
+import { useDispatch } from "react-redux";
+import { deleteUniversity } from '../actions/universityActions';
+import { Link } from 'react-router-dom'
 
-const UniversityCard = ({ university }) => {
+const UniversityCard = ({ university, }) => {
+
+    const dispatch = useDispatch();
+
+    const deleteUniversityHandler = (id) => {
+        if (window.confirm("Are you sure")) {
+            //DELETE university
+            dispatch(deleteUniversity(id));
+        }
+    };
     return (
         <div className="card mb-3">
             <div className="row no-gutters">
@@ -19,8 +31,10 @@ const UniversityCard = ({ university }) => {
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
+                <Link to={`/update/${university.id}`} className="btn btn-block btn-primary">Edit</Link>
+                <button className="btn btn-block btn-danger" onClick={() => { deleteUniversityHandler(university.id) }}>Delete</button>
+            </div >
+        </div >
     )
 }
 
