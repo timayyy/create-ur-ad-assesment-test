@@ -4,9 +4,6 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/timayyy/create-ur-ad-assesment-test">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">A simple CRUD application to find universities</h3>
 
@@ -30,7 +27,9 @@
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
-   <li><a href="#built-with">Built With</a><li>
+   <li>
+      <a href="#built-with">Built With</a>
+    </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -47,10 +46,10 @@
 
 ### Built With
 
-* [](Python)
-* [](React)
-* [](Redux)
-* [](Bootstrap)
+* [Python](Python)
+* [React](React)
+* [Redux](Redux)
+* [Bootstrap](Bootstrap)
 
 
 
@@ -67,9 +66,9 @@ This is an example of how to list things you need to use the software and how to
   npm install npm@latest -g
   ```
 * python
-```sh
-Download the latest python.exe 
-```
+  ```sh
+  Download the latest python.exe 
+  ```
 
 ### Installation
 
@@ -109,7 +108,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@alsocalledpipe](https://twitter.com/alsocalledpipe) - email
+Timilehin Oladejo - [@alsocalledpipe](https://twitter.com/alsocalledpipe) - timilehin65@gmail.com
 
 Project Link: [https://github.com/timayyy/create-ur-ad-assesment-test](https://github.com/timayyy/create-ur-ad-assesment-test)
 
