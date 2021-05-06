@@ -23,8 +23,7 @@ Universities = Universities()
 
 @app.route("/")
 def serve():
-    return send_from_directory(app.static_folder,'index.html')
-
+    return "<h1> Welcome to server</h1>"
 # GET all universities or POST a university
 @app.route("/api/universities", methods=["GET", "POST"])
 def get():
